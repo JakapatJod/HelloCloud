@@ -36,3 +36,5 @@ if __name__ == '__main__':
     app.run(debug=True)
 # ORM = Online Reputation Management
 # WEB --> WEB SERVER -WSGI-> applicating instance --> ORM --> database(postgresSQL)
+# เปิดในมือถือได้เรียกว่า Production
+# killall -9 python ลบตัว Process ของ python ทั้งหมดที่ run
