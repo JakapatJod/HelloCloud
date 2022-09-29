@@ -6,7 +6,7 @@ app =  Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:5432/testdb' # define ของ databaseSQL
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # ปิดข้อความโชว์ ถ้าจะเปิดให้เป็น True
 
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
 # class Comments(db.Model): 
 #     __tablename__ = 'comments' # เรียกใช้ table ที่ชื่อว่า comments
@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 @app.route('/')
 def index():
     # result = Comments.query.all() # methods กับ object all
-    return render_template('index7.html') # result คือ ข้อมูลที่ดึงออกมาทั้งหมด
+    return '<h1>Hello RUK-COM is Great!</h1>' # render_template('index7.html') # result คือ ข้อมูลที่ดึงออกมาทั้งหมด
 
 # @app.route('/sign')
 # def sign():
@@ -32,8 +32,9 @@ def index():
 #     db.session.commit()
 #     return redirect(url_for('index'))   # พอทำเสร็จก็จะกลับไปหน้า index
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80)
 # ORM = Online Reputation Management
 # WEB --> WEB SERVER -WSGI-> applicating instance --> ORM --> database(postgresSQL)
 # เปิดในมือถือได้เรียกว่า Production
