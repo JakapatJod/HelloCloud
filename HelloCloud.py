@@ -1,8 +1,8 @@
-from flask import Flask,render_template
+from flask import Flask,render_template 
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/') # http://127.0.0.1/home ตัวอย่าง
 def index():
     return '<h1>Hello RUK-COM!</h1>'
 
@@ -12,7 +12,7 @@ def home():
              'https://www.google.com',
              'https://www.python.org',
              'https://kmutnb.ac.th']
-    return render_template('example.html',links=links)
+    return render_template('example.html',links=links) # โดนผ่าน parameter links
 
 if __name__ == '__main__':
     app.debug = True
