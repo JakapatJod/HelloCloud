@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy # มาทำเพื่อ DB model �
 from sqlalchemy import Column,Integer,String,Date # ประเภทของ columns มีอะไรบ้าง
 
 app =  Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.9.80:5432/testdb' # define ของ databaseSQL
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:5432/testdb' # define ของ databaseSQL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # ปิดข้อความโชว์ ถ้าจะเปิดให้เป็น True
 
 db = SQLAlchemy(app)
