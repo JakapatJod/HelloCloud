@@ -3,21 +3,21 @@ from flask_sqlalchemy import SQLAlchemy # มาทำเพื่อ DB model �
 from sqlalchemy import Column,Integer,String,Date # ประเภทของ columns มีอะไรบ้าง
 
 app =  Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:5432/testdb' # define ของ databaseSQL
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # ปิดข้อความโชว์ ถ้าจะเปิดให้เป็น True
+# app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:5432/testdb' # define ของ databaseSQL
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # ปิดข้อความโชว์ ถ้าจะเปิดให้เป็น True
 
 db = SQLAlchemy(app)
 
-class Comments(db.Model): 
-    __tablename__ = 'comments' # เรียกใช้ table ที่ชื่อว่า comments
-    id = Column(Integer,primary_key=True) # primary_key คือซ้ำไม่ได้
-    name = Column(String)
-    comment = Column(String)
+# class Comments(db.Model): 
+#     __tablename__ = 'comments' # เรียกใช้ table ที่ชื่อว่า comments
+#     id = Column(Integer,primary_key=True) # primary_key คือซ้ำไม่ได้
+#     name = Column(String)
+#     comment = Column(String)
 
 @app.route('/')
 def index():
-    result = Comments.query.all() # methods กับ object all
-    return render_template('index7.html',result=result) # result คือ ข้อมูลที่ดึงออกมาทั้งหมด
+    # result = Comments.query.all() # methods กับ object all
+    return render_template('index7.html') # result คือ ข้อมูลที่ดึงออกมาทั้งหมด
 
 # @app.route('/sign')
 # def sign():
