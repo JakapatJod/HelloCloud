@@ -19,21 +19,21 @@ def index():
     result = Comments.query.all() # methods กับ object all
     return render_template('index7.html',result=result) # result คือ ข้อมูลที่ดึงออกมาทั้งหมด
 
-@app.route('/sign')
-def sign():
-    return render_template('sign7.html')
+# @app.route('/sign')
+# def sign():
+#     return render_template('sign7.html')
 
-@app.route('/process',methods=['POST'])
-def process():  # process ฟอร์มที่รับมาจาก sign
-    name = request.form['name']
-    comment = request.form['comment']
-    signature = Comments(name=name,comment=comment)
-    db.session.add(signature)   # signatue จะถูก add เข้าไปใน database
-    db.session.commit()
-    return redirect(url_for('index'))   # พอทำเสร็จก็จะกลับไปหน้า index
+# @app.route('/process',methods=['POST'])
+# def process():  # process ฟอร์มที่รับมาจาก sign
+#     name = request.form['name']
+#     comment = request.form['comment']
+#     signature = Comments(name=name,comment=comment)
+#     db.session.add(signature)   # signatue จะถูก add เข้าไปใน database
+#     db.session.commit()
+#     return redirect(url_for('index'))   # พอทำเสร็จก็จะกลับไปหน้า index
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 # ORM = Online Reputation Management
 # WEB --> WEB SERVER -WSGI-> applicating instance --> ORM --> database(postgresSQL)
 # เปิดในมือถือได้เรียกว่า Production
