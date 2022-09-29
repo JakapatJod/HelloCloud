@@ -17,7 +17,7 @@ class Comments(db.Model):
 @app.route('/')
 def index():
     result = Comments.query.all() # methods กับ object all
-    return render_template('index7.html',result=result) # resulut คือ ข้อมูลที่ดึงออกมาทั้งหมด
+    return render_template('index7.html',result=result) # result คือ ข้อมูลที่ดึงออกมาทั้งหมด
 
 @app.route('/sign')
 def sign():
