@@ -30,7 +30,7 @@ def recreate_database():
 
 def load_yaml(fn):
     with session_scope() as s:
-        for data in yaml.load_all(open(fn), Loader=yaml.FullLoader):
+        for data in yaml.load_all(open(fn), Loader=yaml.FullLoader): #โหลด โดยเอาตัวอะไรบ้าง
             bookyml = Book(**data)
             s.add(bookyml)
 
