@@ -35,12 +35,12 @@ class Product(Base):
     orders = relationship("Order", secondary='order_product', viewonly=True)
 
     def __init__(self, name):
-        self.id = uuid.uuid4().hex
+        self.id = uuid.uuid4().hex # สร้างตัว id เป็นฐาน 16
         self.name = name
         self.orders = []
     
     def __repr__(self):
-        return '<Product {}>'.format(self.name)
+        return '<Product {}>'.format(self.name) # จะแค่ return ชื่อ product
 
 class Order(Base):
     __tablename__ = 'orders'
@@ -48,8 +48,7 @@ class Order(Base):
     name = Column(String(80), nullable=False)
 
     products = relationship(
-        "Product", secondary="order_product", viewonly=True
-    )
+        "Product", secondary="order_product", viewonly=True)
 
     def add_products(self,items):
         for product , qty in items:
