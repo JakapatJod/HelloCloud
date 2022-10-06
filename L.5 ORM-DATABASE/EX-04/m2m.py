@@ -14,7 +14,7 @@ class Order_Product(Base):
     product_id = Column(Integer, ForeignKey('products.id'),primary_key=True)
     quantity = Column(Integer)
 
-    order = relationship("Order", backref=backref(
+    order = relationship("Order", backref=backref(      # เชื่อมกับ order_products
         "order_products", cascade="all, delete-orphan"))
     product = relationship("Product", backref=backref(
         "order_products", cascade="all, delete-orphan"))
