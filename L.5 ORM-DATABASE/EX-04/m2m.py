@@ -4,7 +4,7 @@ from sqlalchemy import Column , Integer , String , ForeignKey
 from sqlalchemy.orm import sessionmaker , relationship , backref
 import uuid
 
-engine = sqlalchemy.create_engine('sqlite:///po.db')
+engine = sqlalchemy.create_engine('sqlite:///po.sqlite3')
 Base = declarative_base()
 
 class Order_Product(Base):
@@ -28,7 +28,7 @@ class Order_Product(Base):
         return '<Order_Product {}>'.format(self.order.name+" "+self.product.name)
 
 class Product(Base):
-    __tablename__ = "orders"
+    __tablename__ = "products"
     id = Column(String(35), primary_key=True, unique = True)
     name = Column(String(80), nullable=False)
 
@@ -51,9 +51,9 @@ class Order(Base):
         "Product", secondary="order_product", viewonly=True
     )
 
-    def add_products(self,item):
-        for products , qty in items:
-            self.order_product.append(Order_Product(
+    def add_products(self,items):
+        for product , qty in items:
+            self.order_products.append(Order_Product(
                 order=self, product=product ,quantity=qty
             ))
     
