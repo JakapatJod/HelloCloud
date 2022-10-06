@@ -71,8 +71,8 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 prod1 = Product(name="Oreo")
-prod2 = Product(name="Hide and Seek")
-prod3 = Product(name="Marie")
+prod2 = Product(name="Kit KAT")
+prod3 = Product(name="Pringal")
 prod4 = Product(name="Good Day")
 
 session.add_all([prod1,prod2,prod3,prod4])
