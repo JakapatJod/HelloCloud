@@ -66,7 +66,7 @@ Registration_1 = REGISTRATION(student_id='6406022620011',subject_id='060233113',
 Registration_2 = REGISTRATION(student_id='6406022620011',subject_id='060233205',year='2565',semester='1',grade='A')
 Registration_3 = REGISTRATION(student_id='6406022620096',subject_id='060233113',year='2565',semester='1',grade='C')
 Registration_4 = REGISTRATION(student_id='6406022620096',subject_id='060233201',year='2565',semester='1',grade='B+')
-Registration_5 = REGISTRATION(student_id='6406022020037',subject_id='060233201',year='2565',semester='1',grade='C-')
+Registration_5 = REGISTRATION(student_id='6406022020037',subject_id='060233201',year='2565',semester='1',grade='A')
 Registration_6 = REGISTRATION(student_id='6406022020037',subject_id='060233205',year='2565',semester='1',grade='B')
 
 Subject_1 = SUBJECT(subject_id='060233113',subject_name='ADVANCED COMPUTER PROGRAMMING',creadit='3',teacher_id='AMK')
