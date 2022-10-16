@@ -73,9 +73,9 @@ Subject_1 = SUBJECT(subject_id='060233113',subject_name='ADVANCED COMPUTER PROGR
 Subject_2 = SUBJECT(subject_id='060233205',subject_name='ADVANCED NETWORK AND PROTOCOL',creadit='3',teacher_id='KNM')
 Subject_3 = SUBJECT(subject_id='060233201',subject_name='NETWORK ENGINEERING LABORATORY',creadit='1',teacher_id='WKN')
 
-Teacher_1 = TEACHER(teacher_id='AMK',f_name='Anirach',l_name='Mingkhwan',e_mail='Anirach@emil.com')
-Teacher_2 = TEACHER(teacher_id='KNM',f_name='Khanista',l_name='Namee',e_mail='Khanista@emil.com')
-Teacher_3 = TEACHER(teacher_id='WKN',f_name='Watcharachai',l_name='Kongsiriwattana',e_mail='Watcharachai@emil.com')
+Teacher_1 = TEACHER(teacher_id='AMK',f_name='Anirach',l_name='Mingkhwan',e_mail='Anirach@gmail.com')
+Teacher_2 = TEACHER(teacher_id='KNM',f_name='Khanista',l_name='Namee',e_mail='Khanista@gmail.com')
+Teacher_3 = TEACHER(teacher_id='WKN',f_name='Watcharachai',l_name='Kongsiriwattana',e_mail='Watcharachai@gmail.com')
 
 session.add_all([Student_1,Student_2,Student_3,Registration_1,Registration_2,Registration_3,Registration_4,Registration_5,Registration_6,\
         Subject_1,Subject_2,Subject_3,Teacher_1,Teacher_2,Teacher_3])
