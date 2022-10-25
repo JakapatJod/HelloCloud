@@ -2,7 +2,6 @@ from flask import Flask,render_template,request  # ตอนนี้ run เป
 from flask_sqlalchemy import SQLAlchemy # มาทำเพื่อ DB model ใน columns
 from Tables_ORM import STUDENT ,REGISTRATION,SUBJECT,TEACHER, session
 app =  Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:5432/homework'
 
 @app.route('/')
 def index():
