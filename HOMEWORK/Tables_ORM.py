@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column , Integer , String , ForeignKey
 from sqlalchemy.orm import sessionmaker , relationship , backref
 
-engine = sqlalchemy.create_engine('postgresql://webadmin:RTTooa27373@10.104.4.188:5432/homework')
+engine = sqlalchemy.create_engine('postgresql://webadmin:RTTooa27373@node36662-jakapat.proen.app.ruk-com.cloud:11243/homework')
 Base = declarative_base()
 
 class STUDENT(Base):
@@ -34,7 +34,7 @@ class SUBJECT(Base):
         subject_id = Column(String(15),primary_key=True, nullable=True)
         subject_name = Column(String(50), nullable=True)
         creadit = Column(Integer, nullable=True)
-        teacher_id = Column(ForeignKey('teachers.teacher_id'), nullable=True)
+        teacher_id = Column(String(3), nullable=True)
 
 
         def __repr__(self):
@@ -49,8 +49,8 @@ class TEACHER(Base):
         teacher_e_mail = Column(String(50), nullable=True)
 
         def __repr__(self):
-                return '<User(teacher_id = {} , f_name= {} , l_name = {} , e_mail = {})>'.format(self.teacher_id,\
-                        self.f_name, self.l_name , self.e_mail)
+                return '<User(teacher_id = {} , teacher_f_name= {} , teacher_l_name = {} , teacher_e_mail = {})>'.format(self.teacher_id,\
+                        self.teacher_f_name, self.teacher_l_name , self.teacher_e_mail)
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
@@ -69,9 +69,9 @@ Registration_4 = REGISTRATION(student_id='6406022620096',subject_id='060233201',
 Registration_5 = REGISTRATION(student_id='6406022020037',subject_id='060233201',year='2565',semester='1',grade='A')
 Registration_6 = REGISTRATION(student_id='6406022020037',subject_id='060233205',year='2565',semester='1',grade='B')
 
-Subject_1 = SUBJECT(subject_id='060233113',subject_name='ADVANCED COMPUTER PROGRAMMING',creadit='3',teacher_id='AMK')
-Subject_2 = SUBJECT(subject_id='060233205',subject_name='ADVANCED NETWORK AND PROTOCOL',creadit='3',teacher_id='KNM')
-Subject_3 = SUBJECT(subject_id='060233201',subject_name='NETWORK ENGINEERING LABORATORY',creadit='1',teacher_id='WKN')
+Subject_1 = SUBJECT(subject_id='060233113',subject_name='ADVANCED COMPUTER PROGRAMMING',creadit=3,teacher_id='AMK')
+Subject_2 = SUBJECT(subject_id='060233205',subject_name='ADVANCED NETWORK AND PROTOCOL',creadit=3,teacher_id='KNM')
+Subject_3 = SUBJECT(subject_id='060233201',subject_name='NETWORK ENGINEERING LABORATORY',creadit=1,teacher_id='WKN')
 
 Teacher_1 = TEACHER(teacher_id='AMK',teacher_f_name='Anirach',teacher_l_name='Mingkhwan',teacher_e_mail='Anirach@gmail.com')
 Teacher_2 = TEACHER(teacher_id='KNM',teacher_f_name='Khanista',teacher_l_name='Namee',teacher_e_mail='Khanista@gmail.com')
