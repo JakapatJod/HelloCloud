@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column , Integer , String , ForeignKey
 from sqlalchemy.orm import sessionmaker , relationship , backref
 
-engine = sqlalchemy.create_engine('sqlite:///HW.sqlite3')
+engine = sqlalchemy.create_engine('postgresql://webadmin:RTTooa27373@10.104.4.188:5432/homework')
 Base = declarative_base()
 
 class STUDENT(Base):
