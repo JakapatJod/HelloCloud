@@ -79,5 +79,5 @@ Teacher_3 = TEACHER(teacher_id='WKN',teacher_f_name='Watcharachai',teacher_l_nam
 
 session.add_all([Student_1,Student_2,Student_3,Registration_1,Registration_2,Registration_3,Registration_4,Registration_5,Registration_6,\
         Subject_1,Subject_2,Subject_3,Teacher_1,Teacher_2,Teacher_3])
-
+print(session.query(STUDENT).all())
 session.commit()
