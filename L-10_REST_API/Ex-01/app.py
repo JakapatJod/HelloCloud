@@ -1,4 +1,3 @@
-from dataclasses import field
 from flask import Flask,request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
@@ -33,13 +32,68 @@ class Product(db.Model):
 # Product Schema
 class ProductSchema(ma.Schema):
     class Meta:
-        field = ('id','name','description','price','qty')
+        fields = ('id','name','description','price','qty') # ต้องมี s
 
 # Init Schema
 product_schema = ProductSchema()
 products_schema = ProductSchema(many=True)
-
 db.create_all()
+
+# Create a Product
+@app.route('/product',methods=['POST'])
+def add_product():
+    name = request.json['name'] # เรียก json เก็บข้อมูล name
+    description  = request.json['description']
+    price = request.json['price']
+    qty = request.json['qty'] 
+
+    new_product = Product(name,description,price,qty) # สร้างเป็น object
+
+    db.session.add(new_product)
+    db.session.commit()
+
+    return product_schema.jsonify(new_product)
+
+# Get all Products
+@app.route('/product',methods=['GET'])
+def get_products():
+    all_products = Product.query.all()
+    result = products_schema.dump(all_products)
+    return jsonify(result)
+
+# Get Single Product
+@app.route('/product/<id>', methods=['GET'])
+def get_product(id):
+    product = Product.query.get(id)
+    return product_schema.jsonify(product)
+
+# Update a Product
+@app.route('/product/<id>',methods=['PUT'])
+def update_product(id):
+    product = Product.query.get(id)
+
+    name = request.json['name']
+    description = request.json['description']
+    price = request.json['price']
+    qty = request.json['qty']
+
+    product.name = name
+    product.description = description
+    product.price = price
+    product.qty = qty
+    
+    db.session.commit()
+    
+    return product_schema.jsonify(product)
+
+# Delete Product
+@app.route('/product/<id>',methods=['DELETE'])
+def delete_product(id):
+    product = Product.query.get(id)
+    db.session.delete(product)
+    db.session.commit()
+
+    return product_schema.jsonify(product)
 # Run Server
 if __name__ == '__main__':
     app.run(debug=True)
