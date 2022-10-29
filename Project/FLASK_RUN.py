@@ -29,7 +29,7 @@ def login():
         connection = psycopg2.connect(user='webadmin',
                                     password='RTTooa27373',
                                     host='node36662-jakapat.proen.app.ruk-com.cloud',
-                                    port='11243',
+                                    port='5432',
                                     database='login')
 
         # connection.row_factory = psycopg2.Row
@@ -65,7 +65,7 @@ def register():
             connection = psycopg2.connect(user='webadmin',
                                     password='RTTooa27373',
                                     host='node36662-jakapat.proen.app.ruk-com.cloud',
-                                    port='11243',
+                                    port='5432',
                                     database='login')
             cursor = connection.cursor()
     
