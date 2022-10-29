@@ -10,7 +10,7 @@ import psycopg2.extras
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.9.88:5432/login'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:5432/login'
 #app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@node36662-jakapat.proen.app.ruk-com.cloud:11243/login' # define ของ databaseSQL ดึง database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # ปิดข้อความโชว์ ถ้าจะเปิดให้เป็น True
 app.config['SQLALCHEMY_KEY'] = 'how_to_Get_KEY' 
