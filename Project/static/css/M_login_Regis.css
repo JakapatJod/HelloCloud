@@ -20,7 +20,7 @@ body
     position: relative;
     width: 380px;
     height: 420px;
-    background: #000000;
+    background: rgb(119, 162, 171);
     border-radius: 8px;
 }
 
@@ -132,4 +132,11 @@ input[type="submit"]
 .alert{
     color: red;
     text-align: center;
+}
+.inputBox a {
+    position: absolute;
+    left: 89%;
+    top: 38%;
+    z-index: 99;
+    cursor: pointer;
 }

@@ -26,11 +26,12 @@
                         <i></i>
                     </div>
                     <div class="inputBox">
-
-                        <input type="password" name="password" class="form-control" required>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                        <a><img style="width: 25px;" src="static/img/hidden.png" onclick="pass()" class="pass-icon" id="pass-icon"></a>
                         <span>Password</span>
                         <i></i>
                     </div>
+
                     <div class="links">
                         <input type="submit" value="Login" class="btn btn-success btn-block">
                         <a href="{{url_for('register')}}" class="btn btn-primary btn-block">Register</a>
@@ -44,3 +45,4 @@
         $(".alert").hide(3000)
     });
 </script>
+<script src="static/script.js"></script>
