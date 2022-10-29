@@ -14,8 +14,8 @@ try:
         (id SERIAL PRIMARY KEY,
         username      VARCHAR(50) NOT NULL,
         password      VARCHAR(50) NOT NULL,
-        address      VARCHAR(255) NOT NULL,
-        contact     INTEGER NOT NULL); '''
+        email      VARCHAR(255) NOT NULL,
+        tel     INTEGER NOT NULL); '''
 
     cursor.execute(create_table_guery)
     connection.commit()
