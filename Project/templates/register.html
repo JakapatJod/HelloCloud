@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/M_login_Regis.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="box">
+
+                <form method="POST" action="/register" class="form">
+                    <h2 class="page-header text-primary text-center">Registration</h2>
+                    <div class="inputBox">
+                        <input type="text" class="form-control" name="username" required>
+                        <span>Username</span>
+                        <i></i>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" class="form-control" name="passwords" required>
+                        <span>Password</span>
+                        <i></i>
+                    </div>
+                     <div class="inputBox">
+                        <input class="form-control" name="address" required>
+                        <span>Address</span>
+                        <i></i>
+                     </div>
+                    <div class="inputBox">
+                        <input type="text" class="form-control" name="contact" required>
+                        <span>Contact</span>
+                        <i></i>
+                    </div>
+
+                     <div class="links">
+                        <input type="submit" class="btn btn-success btn-block" value="Register">
+                         <a href="{{url_for('index')}}" class="btn btn-primary btn-block">Back to Home</a>
+                    </div>
+                </form>
+
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("form").attr("autocomplete","off");
+    });
+</script>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Page</title>
+    <link rel="stylesheet" href="static/homepage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body style="background-image: url(static/img/background.jpg);">
+    <div class="banner-area">
+        <header>
+            <h1><a href="{{ url_for('customer') }}" class="logo">GoldTrader</a></h1>
+            <ul class="menu">
+           <!--<h3 class="text-success">Welcome : {{session["username"]}}</h3>-->
+                <h2><a href="{{url_for('customer')}}" >Home</a></h2>
+
+               <h2><a href="{{url_for('check')}}" >Main</a></h2>
+
+
+                <h2><a href="{{url_for('team')}}" >Team</a></h2>
+
+                <h2><a href="{{url_for('register')}}" >Register</a></h2>
+
+                <h2><a href="{{url_for('logout')}}" >Logout</a></h2>
+            </ul>
+        </header>
+        </ul>    
+        <div class="banner-text">
+            <h2>ยินดีต้อนรับเข้าสู้เว็บไซต์ของเรา</h2>
+            <h3>เว็บที่เช็คราคาทองโลกและทองรูปพรรณต่างๆ<br>Gold Trader</h3>
+            <a href="{{ url_for('check') }}">เข้าสู่เว็บไซต์</a>
+        </div>
+    </div>
+
+</body>
+</html>

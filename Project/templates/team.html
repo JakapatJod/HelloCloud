@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <link href="{{ url_for('static',filename='css/M_team.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/mod.css">
+
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="{{ url_for('customer') }}"><img src="static/img/Gold.png" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItem">
+                        <li><a href="{{ url_for('customer') }}">Home</a></li>
+                        <li><a href="{{ url_for('check') }}">Main</a></li>
+                        <li><a href="{{ url_for('team') }}">Team</a></li>
+                        <li><a href="{{url_for('register')}}">Register</a></li>
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+<!--HEADER-->
+<!--INFO-->
+
+    <div class="container">
+            <h1 class="heading"><span>My</span>Our Team</h1>
+        
+            <div class="profiles">
+                <div class="profile">
+                    <img src="static/img/Profile.jpg" class="profile-img">
+            
+                    <h3 class="user-name">Jakapat Joddungchan</h3>
+                    <h4>Full Stack Developer</h5>
+                </div>
+                <div class="profile">
+                    <img src="static/img/Profile2.jpg" class="profile-img">
+            
+                    <h3 class="user-name">Watcharakorn Yentaweesub</h3>
+                    <h4>Backend</h4>
+                </div>
+                <div class="profile">
+                    <img src="static/img/Profile3.jpg" class="profile-img">
+            
+                    <h3 class="user-name">Nititat Bangpra</h3>
+                    <h4>Backend</h5>
+                </div>
+            </div>
+    </div>
+<!------footer------->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>ติดตั้งบนแอป Android และ IOS</p>
+                    <div class="app-logo">
+                        <a href="https://www.android.com/"><img src="static/img/play-store.png"></a>
+                        <a href="https://www.apple.com/ios/ios-15/"><img src="static/img/app-store.png"></a>
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <h3>" เว็บเช็คราคาทองโลกและรูปพรรณ "</h3>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Links</h3>
+                    <ul class="link">
+                        <li><a href="https://kmutnb.ac.th/">KMUTNB</a></li>
+                        <li><a href="https://www.facebook.com/FITM.KMUTNB/">FITM</a></li>
+                        <li><a href="https://www.facebook.com/INEKMUTNB/">INE</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/Joddna">Facbook</a></li>
+                        <li><a href="https://www.instagram.com/jod_jakapat/">Instagram</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCcD6g_TOz5Z-ugJgROGhbYw">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2022 - Jakapat</p>
+        </div>
+    </div>
+</body>
+</html>
