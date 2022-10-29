@@ -60,7 +60,7 @@ def register():
         try:
             username = request.form['username']
             passwords = request.form['passwords']
-            address = request.form['address']
+            email = request.form['email']
             contact = request.form['contact']
             connection = psycopg2.connect(user='webadmin',
                                     password='RTTooa27373',
@@ -69,8 +69,8 @@ def register():
                                     database='login')
             cursor = connection.cursor()
     
-            postgres_insert_query = """ INSERT INTO accounts (username, password , address , contact) VALUES (%s,%s,%s,%s)"""
-            record_to_insert = (username,passwords,address,contact)
+            postgres_insert_query = """ INSERT INTO accounts (username, password , email , tel) VALUES (%s,%s,%s,%s)"""
+            record_to_insert = (username,passwords,email,contact)
             cursor.execute(postgres_insert_query,record_to_insert)
             connection.commit()
             flash("Record Added  Successfully","success")
