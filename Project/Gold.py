@@ -29,8 +29,6 @@ lastup = '29/10/2565 เวลา 09:00 น. (ครั้งที่ 1)'
     #print('ขายออก '+ sup.find(id="DetailPlace_uc_goldprices1_lblOMSell").text + ' บาท')
     #print('ฐานภาษี '+ sup.find(id="DetailPlace_uc_goldprices1_lblOMBuy").text + ' บาท')
 
-Base.metadata.drop_all(engine)
-Base.metadata.create_all(engine)
 
 Time = sup.find(id="DetailPlace_uc_goldprices1_lblAsTime")
 Sell = sup.find(id="DetailPlace_uc_goldprices1_lblBLSell")
