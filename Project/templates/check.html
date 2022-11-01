@@ -39,42 +39,67 @@
     </div>
 <!--HEADER-->
 <!--INFO-->
-
+    <table class="styled-table">
+        <thead>
+            <tr class="active-row">
+                <th>Time</th>
+                <th>Gold</th>
+                <th>Sell</th>
+                <th>Buy</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in GOLD %}
+            <tr>
+                <td>{{ i.time }}</td>
+                <td>{{ i.gold }}</td>
+                <td>{{ i.sell }}</td>
+                <td>{{ i.buy }}</td>
+            </tr>
+            <tr>
+                <td>{{ i.time_roop }}</td>
+                <td>{{ i.gold_roop }}</td>
+                <td>{{ i.sell_roop }}</td>
+                <td>{{ i.buy_roop }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 <!------footer------->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col-1">
-                <h3>Download Our App</h3>
-                <p>ติดตั้งบนแอป Android และ IOS</p>
-                <div class="app-logo">
-                    <a href="https://www.android.com/"><img src="static/img/play-store.png"></a>
-                    <a href="https://www.apple.com/ios/ios-15/"><img src="static/img/app-store.png"></a>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>ติดตั้งบนแอป Android และ IOS</p>
+                    <div class="app-logo">
+                        <a href="https://www.android.com/"><img src="static/img/play-store.png"></a>
+                        <a href="https://www.apple.com/ios/ios-15/"><img src="static/img/app-store.png"></a>
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <h3>" เว็บเช็คราคาทองโลกและรูปพรรณ "</h3>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Links</h3>
+                    <ul class="link">
+                        <li><a href="https://kmutnb.ac.th/">KMUTNB</a></li>
+                        <li><a href="https://www.facebook.com/FITM.KMUTNB/">FITM</a></li>
+                        <li><a href="https://www.facebook.com/INEKMUTNB/">INE</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/Joddna">Facbook</a></li>
+                        <li><a href="https://www.instagram.com/jod_jakapat/">Instagram</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCcD6g_TOz5Z-ugJgROGhbYw">Youtube</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-col-2">
-                <h3>" เว็บเช็คราคาทองโลกและรูปพรรณ "</h3>
-            </div>
-            <div class="footer-col-3">
-                <h3>Links</h3>
-                <ul class="link">
-                    <li><a href="https://kmutnb.ac.th/">KMUTNB</a></li>
-                    <li><a href="https://www.facebook.com/FITM.KMUTNB/">FITM</a></li>
-                    <li><a href="https://www.facebook.com/INEKMUTNB/">INE</a></li>
-                </ul>
-            </div>
-            <div class="footer-col-4">
-                <h3>Follow us</h3>
-                <ul>
-                    <li><a href="https://www.facebook.com/Joddna">Facbook</a></li>
-                    <li><a href="https://www.instagram.com/jod_jakapat/">Instagram</a></li>
-                    <li><a href="https://www.youtube.com/channel/UCcD6g_TOz5Z-ugJgROGhbYw">Youtube</a></li>
-                </ul>
-            </div>
+            <hr>
+            <p class="copyright">Copyright 2022 - Jakapat</p>
         </div>
-        <hr>
-        <p class="copyright">Copyright 2022 - Jakapat</p>
-    </div>
 </div>
 </body>
 </html>

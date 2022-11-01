@@ -8,7 +8,7 @@ from sqlalchemy import CHAR, VARCHAR, Column, Integer, ForeignKey, String
 from sqlalchemy.orm import sessionmaker
 import time
 
-engine = sqlalchemy.create_engine('postgresql://webadmin:RTTooa27373@node36662-jakapat.proen.app.ruk-com.cloud:11243/project') #11243 Database postgresSQL
+engine = sqlalchemy.create_engine('postgresql://webadmin:RTTooa27373@node36662-jakapat.proen.app.ruk-com.cloud:5432/project') #11243 Database postgresSQL
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()

@@ -94,8 +94,10 @@ def logout():
 
 @app.route('/check')
 def check():
-    Data = session.query(goldthaistick.time,goldthaistick.sell)
-    return render_template('check.html')
+    Data = session.query(goldthaistick.gold,goldthaistick.time,goldthaistick.sell,goldthaistick.buy,goldthairoopapan.gold_roop\
+        ,goldthairoopapan.time_roop,goldthairoopapan.sell_roop,goldthairoopapan.buy_roop)\
+        .join(goldthairoopapan,goldthaistick.id == goldthairoopapan.id)
+    return render_template('check.html',DATAGOLD=Data)
 
 @app.route('/team')
 def team():
