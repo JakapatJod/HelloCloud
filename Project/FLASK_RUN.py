@@ -2,10 +2,6 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, session, redirect, url_for, render_template, flash , request
 from sqlalchemy import Column , Integer , String , ForeignKey
-from Gold_Update import goldthairoopapan , goldthaistick ,session
-import time
-from bs4 import BeautifulSoup
-import requests
 
 import psycopg2  
 import psycopg2.extras
