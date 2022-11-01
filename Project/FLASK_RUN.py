@@ -2,6 +2,8 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, session, redirect, url_for, render_template, flash , request
 from sqlalchemy import Column , Integer , String , ForeignKey
+from Gold_Update import goldthairoopapan , goldthaistick ,session
+
 
 import psycopg2  
 import psycopg2.extras
@@ -92,6 +94,7 @@ def logout():
 
 @app.route('/check')
 def check():
+    Data = session.query(goldthaistick.time,goldthaistick.sell)
     return render_template('check.html')
 
 @app.route('/team')

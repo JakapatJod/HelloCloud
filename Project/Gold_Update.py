@@ -1,3 +1,4 @@
+from logging import NullHandler
 from bs4 import BeautifulSoup
 import requests
 from sqlalchemy import create_engine
@@ -6,10 +7,11 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import CHAR, VARCHAR, Column, Integer, ForeignKey, String
 from sqlalchemy.orm import sessionmaker
 import time
-import psycopg2
 
-engine = sqlalchemy.create_engine('postgresql://webadmin:RTTooa27373@node36662-jakapat.proen.app.ruk-com.cloud:5432/project') #11243 Database postgresSQL
+engine = sqlalchemy.create_engine('postgresql://webadmin:RTTooa27373@node36662-jakapat.proen.app.ruk-com.cloud:11243/project') #11243 Database postgresSQL
 Base = declarative_base()
+Session = sessionmaker(bind=engine)
+session = Session()
 
 
 url = 'https://www.goldtraders.or.th'
@@ -19,42 +21,42 @@ sup = BeautifulSoup(req.text,'lxml')
 
 lastup = '29/10/2565 เวลา 09:00 น. (ครั้งที่ 1)'
 
-#def GoldpriceCheck():
- #   print("ราคาทองตามประกาศของสมาคมค้าทองคำ")
-  #  print('ประจำวันที่ ' + sup.find(id="DetailPlace_uc_goldprices1_lblAsTime").text)
-   # print('ทองคำแท่ง 96.5%')
-    #print('ขายออก '+ sup.find(id="DetailPlace_uc_goldprices1_lblBLSell").text + ' บาท')
-    #print('รับซื้อ '+ sup.find(id="DetailPlace_uc_goldprices1_lblBLBuy").text + ' บาท')
-    #print('ทองรูปพรรณ 96.5%')
-    #print('ขายออก '+ sup.find(id="DetailPlace_uc_goldprices1_lblOMSell").text + ' บาท')
-    #print('ฐานภาษี '+ sup.find(id="DetailPlace_uc_goldprices1_lblOMBuy").text + ' บาท')
 
+class goldthaistick(Base):
+    __tablename__ = "goldthaistick"
+    id = Column(Integer, primary_key=True)
+    gold = Column(String,nullable=False)
+    time = Column(String, nullable=False)
+    sell = Column(String, nullable=False)
+    buy = Column(String, nullable=False)
 
-Time = sup.find(id="DetailPlace_uc_goldprices1_lblAsTime")
-Sell = sup.find(id="DetailPlace_uc_goldprices1_lblBLSell")
-Buy = sup.find(id="DetailPlace_uc_goldprices1_lblBLBuy")
+class goldthairoopapan(Base):
+    __tablename__ = "goldthairoopapan"
+    id = Column(Integer, primary_key=True)
+    gold_roop = Column(String,nullable=False)
+    time_roop = Column(String, nullable=False)
+    sell_roop = Column(String, nullable=False)
+    buy_roop = Column(String, nullable=False)
+
+Time_stick = sup.find(id="DetailPlace_uc_goldprices1_lblAsTime")
+Sell_stick = sup.find(id="DetailPlace_uc_goldprices1_lblBLSell")
+Buy_stick = sup.find(id="DetailPlace_uc_goldprices1_lblBLBuy")
+
+Time_roopapan = sup.find(id="DetailPlace_uc_goldprices1_lblAsTime")
+Sell_roopapan = sup.find(id="DetailPlace_uc_goldprices1_lblOMSell")
+Buy_roopapan = sup.find(id="DetailPlace_uc_goldprices1_lblOMBuy")
 
 while True:
 
-    if lastup != Time:
-        print('วัน',Time.string)
-        print('ขายออก',Sell.string)
-        print('ซื้อ',Buy.string)
-    time.sleep(5)
-    connection = psycopg2.connect(user='webadmin',
-                                    password='RTTooa27373',
-                                    host='node36662-jakapat.proen.app.ruk-com.cloud',
-                                    port='5432',
-                                    database='project')        
-    cursor = connection.cursor()
-    cursor.execute('SELECT * FROM test')
-    money_records = cursor.fetchall()
-    postgres_insert_query = """ INSERT INTO test (time , sell, buy) VALUES (%s,%s,%s)"""
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
 
-    rec = str(Time.string),str(Sell.string),str(Buy.string)
+    save_goldthai_stick = goldthaistick(gold='ทองแท่ง',time=str(Time_stick.string),sell=str(Sell_stick.string),buy=str(Buy_stick.string))
+    save_goldthai_roopapan = goldthairoopapan(gold_roop='ทองรูปพรรณ',time_roop=str(Time_roopapan.string),sell_roop=str(Sell_roopapan.string),buy_roop=str(Buy_roopapan.string))
 
-    cursor.execute(postgres_insert_query,rec)
-    #money_records = cursor.fetchall()
+    session.add(save_goldthai_stick)
+    session.add(save_goldthai_roopapan)
+    session.commit()
 
-    connection.commit()
-    #print(money_records)
+    print("Succesfull Update")
+    time.sleep(18000)
