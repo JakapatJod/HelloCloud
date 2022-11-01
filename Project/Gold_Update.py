@@ -1,4 +1,3 @@
-from logging import NullHandler
 from bs4 import BeautifulSoup
 import requests
 from sqlalchemy import create_engine
