@@ -13,7 +13,7 @@ import psycopg2.extras
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:11243/login'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@10.104.4.188:5432/login'
 #app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:RTTooa27373@node36662-jakapat.proen.app.ruk-com.cloud:11243/login' # define ของ databaseSQL ดึง database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # ปิดข้อความโชว์ ถ้าจะเปิดให้เป็น True
 app.config['SQLALCHEMY_KEY'] = 'how_to_Get_KEY' 
@@ -32,7 +32,7 @@ def login():
         connection = psycopg2.connect(user='webadmin',
                                     password='RTTooa27373',
                                     host='node36662-jakapat.proen.app.ruk-com.cloud',
-                                    port='11243',
+                                    port='5432',
                                     database='login')
 
         # connection.row_factory = psycopg2.Row
@@ -68,7 +68,7 @@ def register():
             connection = psycopg2.connect(user='webadmin',
                                     password='RTTooa27373',
                                     host='node36662-jakapat.proen.app.ruk-com.cloud',
-                                    port='11243',
+                                    port='5432',
                                     database='login')
             cursor = connection.cursor()
     
@@ -98,7 +98,7 @@ def check():
     connection = psycopg2.connect(user='webadmin',
                                     password='RTTooa27373',
                                     host='node36662-jakapat.proen.app.ruk-com.cloud',
-                                    port='11243',
+                                    port='5432',
                                     database='login')
     cursor = connection.cursor()
     cursor2 = connection.cursor()
