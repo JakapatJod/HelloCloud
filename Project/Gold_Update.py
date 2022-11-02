@@ -56,4 +56,4 @@ while True:
     session.add(save_goldthai_roopapan)
     session.commit()
 
-    time.sleep(18000)
+    time.sleep(7200)
