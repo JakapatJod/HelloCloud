@@ -15,7 +15,7 @@ try:
         username      VARCHAR(50) NOT NULL,
         password      VARCHAR(50) NOT NULL,
         email      VARCHAR(255) NOT NULL,
-        tel     INTEGER NOT NULL); '''
+        tel     VARCHAR(50) NOT NULL); '''
 
     cursor.execute(create_table_guery)
     connection.commit()
