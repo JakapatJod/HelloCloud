@@ -45,15 +45,15 @@ Time_roopapan = sup.find(id="DetailPlace_uc_goldprices1_lblAsTime")
 Sell_roopapan = sup.find(id="DetailPlace_uc_goldprices1_lblOMSell")
 Buy_roopapan = sup.find(id="DetailPlace_uc_goldprices1_lblOMBuy")
 
+while True:
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
 
-Base.metadata.drop_all(engine)
-Base.metadata.create_all(engine)
+    save_goldthai_stick = goldthaistick(gold='ทองแท่ง',time=str(Time_stick.string),sell=str(Sell_stick.string),buy=str(Buy_stick.string))
+    save_goldthai_roopapan = goldthairoopapan(gold_roop='ทองรูปพรรณ',time_roop=str(Time_roopapan.string),sell_roop=str(Sell_roopapan.string),buy_roop=str(Buy_roopapan.string))
 
-save_goldthai_stick = goldthaistick(gold='ทองแท่ง',time=str(Time_stick.string),sell=str(Sell_stick.string),buy=str(Buy_stick.string))
-save_goldthai_roopapan = goldthairoopapan(gold_roop='ทองรูปพรรณ',time_roop=str(Time_roopapan.string),sell_roop=str(Sell_roopapan.string),buy_roop=str(Buy_roopapan.string))
+    session.add(save_goldthai_stick)
+    session.add(save_goldthai_roopapan)
+    session.commit()
 
-session.add(save_goldthai_stick)
-session.add(save_goldthai_roopapan)
-session.commit()
-
-# time.sleep(18000)
+    time.sleep(18000)
