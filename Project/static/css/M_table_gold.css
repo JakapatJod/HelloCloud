@@ -1,0 +1,39 @@
+table, td, th{
+	padding: 20px;
+	border: 1px solid #63320e;
+	border-collapse: collapse;
+	text-align: center;
+	cursor: pointer;
+	margin: auto;
+}
+
+td{
+	font-size: 18px;
+}
+
+th{
+	background-color: #d2691e;
+	color: white;
+}
+
+tr:nth-child(odd){
+	background-color: rgb(255, 255, 255);
+}
+
+tr:nth-child(odd):hover{
+	background-color: #63320e;
+	color: white;
+	transform: scale(1.5);
+	transition: transform 300ms ease-in;
+}
+
+tr:nth-child(even){
+	background-color: #b3b3b3;
+}
+
+tr:nth-child(even):hover{
+	background-color: #63320e;
+    color: white;
+	transform: scale(1.5);
+	transition: transform 300ms ease-in;
+}

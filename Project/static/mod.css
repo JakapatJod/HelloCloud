@@ -43,18 +43,34 @@ p{
 }
 .col-2{
     flex-basis: 50%;
-    min-width: 300px;
+    min-width: 50px;
 }
 .col-2 img{
     max-width: 100%;
     padding: 50px 0;
     text-align: left;
 }
+
 .col-2 h1{
     font-size: 50px;
     line-height: 60px;
     margin:25px;
     color:#fff;
+    font-family: 'Kanit', sans-serif;
+}
+.col-2 h2{
+    font-size: 90px;
+    line-height: 60px;
+    text-align: center;
+    margin:25px;
+    color:black;
+    font-family: 'Kanit', sans-serif;
+}
+.col-2 h3{
+    font-size: 25px;
+    line-height: 60px;
+    margin:25px;
+    color:black;
     font-family: 'Kanit', sans-serif;
 }
 .btm{

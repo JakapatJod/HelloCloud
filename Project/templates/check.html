@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static',filename='css/M_team.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/M_table_gold.css') }}" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/mod.css">
     <title>Check</title>
@@ -39,33 +43,81 @@
     </div>
 <!--HEADER-->
 <!--INFO-->
-    <!-- <table class="styled-table">
-        <h1>Gold Thai</h1>
-        <thead>
-            <tr class="active-row">
-                <th>Time</th>
-                <th>Gold</th>
-                <th>Sell</th>
-                <th>Buy</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for i in DATAGOLD %}
-            <tr>
-                <td>{{ i.time }}</td>
-                <td>{{ i.gold }}</td>
-                <td>{{ i.sell }}</td>
-                <td>{{ i.buy }}</td>
-            </tr>
-            <tr>
-                <td>{{ i.time_roop }}</td>
-                <td>{{ i.gold_roop }}</td>
-                <td>{{ i.sell_roop }}</td>
-                <td>{{ i.buy_roop }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table> -->
+        <div class="row">
+            <div class="col-2">
+                <h2>Gold Thai</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Gold</th>
+                            <th>Sell</th>
+                            <th>Buy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in DATAGOLD %}
+                        <tr>
+                            <td>{{ i[2] }}</td>
+                            <td>{{ i[1] }}</td>
+                            <td>{{ i[3] }}</td>
+                            <td>{{ i[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% for a in DATAGOLD2 %}
+                    <tr>
+                        <td>{{ a[2] }}</td>
+                        <td>{{ a[1] }}</td>
+                        <td>{{ a[3] }}</td>
+                        <td>{{ a[4] }}</td>
+                    </tr>
+                    {% endfor %}
+        
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2">
+                <div class="container3">
+                    <div class="col-md-5">
+                        <canvas id="myChart" ></canvas>
+                        <script>
+                            const ctx = document.getElementById('myChart').getContext('2d');
+                            const myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ['ขายออก ทองแท่ง', 'รับซื้อ ทองแท่ง' , 'ขายออก ทองรูปพรรณ' , 'รับซื้อ ทองรูปพรรณ'],
+                                    datasets: [{
+                                        label: '# of Votes',
+                                        data: [{% for dt in chart_data %} {{dt}}, {% endfor %}],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(255, 206, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(75, 192, 192, 1)',
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 <!------footer------->
     <div class="footer">
         <div class="container">
@@ -99,7 +151,7 @@
                 </div>
             </div>
             <hr>
-            <p class="copyright">Copyright 2022 - Jakapat</p>
+            <p class="copyright">Copyright 2022 - Team Jakapat</p>
         </div>
 </div>
 </body>
