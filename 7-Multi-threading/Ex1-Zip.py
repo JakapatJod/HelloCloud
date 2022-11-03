@@ -14,8 +14,8 @@ class AsyncZip(threading.Thread):
         f.close()
         print('Finished background zip of: ',self.infile)
 
-background = AsyncZip('7-Multi-threading/mydata.txt',
-                        '7-Multi-threading/myarchive.zip')
+background = AsyncZip('7-Multi-threading/mydata.txt',   # ต้องสร้างไฟล์ txt ขึ้นมาก่อน ถึงจะสั่ง run ได้
+                        '7-Multi-threading/myarchive.zip') # เก็บ txt ลงในไฟล์ zip
 background.start()
 print('The main program continues to run in foreground. ')
 

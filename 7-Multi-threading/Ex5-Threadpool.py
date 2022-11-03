@@ -1,4 +1,4 @@
-import logging
+import logging # ออกสอบถึงแค่นี้
 import threading
 import time
 import concurrent.futures
