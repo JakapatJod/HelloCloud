@@ -1,6 +1,7 @@
-import threading
-import zipfile
-
+import threading # Multi-threading สั่งทำโดยไม่ต้อง รอ การทำงาน
+import zipfile 
+# การทำ responsive ทำงานได้เร็วขึ้น
+# ต้องรู้จักรการทำ CPU , OS , Process(Flask) , Thread(แบ่งการทำงานย่อย และรวมกัน) Blocking = ถ้าการทำ User จะทำการ Blocking ตัว User ให้รอ
 class AsyncZip(threading.Thread):
     def __init__(self, infile , outfile):
         threading.Thread.__init__(self)
